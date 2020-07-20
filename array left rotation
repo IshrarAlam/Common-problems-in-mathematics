@@ -1,0 +1,2 @@
+for an array a after d left rotations:
+the output is a[d:]+a[:d]
