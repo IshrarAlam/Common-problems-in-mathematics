@@ -1,0 +1,15 @@
+def arrayManipulation(n, queries):
+    #print(n)
+    #print(queries)
+    arr=[0 for i in range(n+1)]
+    #d={i:v for i,v in enumerate(arr)}
+    for i in queries:
+        a,b,k=i[0],i[1],i[2]
+        arr[a-1]+=k
+        arr[b]-=k
+    arr=arr[:-1]
+    maxs=0;s=0;
+    for i in arr:
+        s+=i
+        maxs=max(s,maxs)
+    return maxs
