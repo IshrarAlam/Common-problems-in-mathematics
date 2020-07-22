@@ -1,0 +1,18 @@
+def minimumSwaps(arr):
+    #find length of input array
+    n=len(arr)
+    #initialize number of swaps to 0
+    min_swaps=0
+    #sorted array as reference list 
+    origin=list(range(1,n+1))
+    #index dictionary for every value in input array
+    d={value:index for index,value in enumerate(arr)}
+    for index,value in enumerate(arr):
+        #set correct value from refernce array
+        correct_value=origin[index]
+        if value!=correct_value:
+            arr[d[correct_value]],arr[index]=arr[index],arr[d[correct_value]]
+            min_swaps+=1
+            d[value]=d[correct_value]
+            d[correct_value]=index
+    return min_swaps
