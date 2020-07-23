@@ -1,0 +1,22 @@
+def sherlockAndAnagrams(s):
+    d=dict(Counter(s))
+    n=0
+    for i in d:
+        if d[i]<2:
+            n+=1
+    if n==len(d):
+        return 0
+    l = [s[i:j] for i in range(len(s)) for j in range(i + 1, len(s) + 1)]
+    n=0
+    print(l)
+    for i in range(len(l)):
+        l[i]="".join(sorted(l[i]))
+    print(l)
+    d=dict(Counter(l))
+    print(d)
+    for i in d:
+        if d[i]==2:
+            n+=1
+        elif d[i]>2:
+            n+=sum(range(1,d[i]))
+    return n
