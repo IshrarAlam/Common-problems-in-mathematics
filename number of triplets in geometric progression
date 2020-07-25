@@ -1,0 +1,15 @@
+def countTriplets(arr,r):
+    l=defaultdict(lambda:0)
+    rt=defaultdict(lambda:0)
+    no_of_triplets=0
+    for i in range(len(arr)):
+        rt[arr[i]]+=1
+    for i in range(len(arr)):
+        c1,c2=0,0
+        if arr[i]%r==0:
+            c1=l[arr[i]//r]
+        rt[arr[i]]-=1
+        c2=rt[arr[i]*r]
+        no_of_triplets+=c1*c2
+        l[arr[i]]+=1
+    return no_of_triplets
